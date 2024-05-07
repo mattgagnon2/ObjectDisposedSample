@@ -27,7 +27,8 @@ public static class MauiProgram
         builder.Services.AddSingleton(Battery.Default);
         builder.Services.AddTransientWithShellRoute<MainPage, MainViewModel>(nameof(MainPage));
 
-        //builder.Services.AddJob(typeof(EmptyStartupJob), nameof(EmptyStartupJob), runInForeground: true);
+		//if the following line is commented out, no crash should happen
+        builder.Services.AddJob(typeof(EmptyStartupJob), nameof(EmptyStartupJob), runInForeground: true);
 
         return builder.Build();
 	}
